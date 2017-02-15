@@ -1,67 +1,60 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8" />
-		<title>防QQ音乐轮播图(初步完成下插件)</title>
-		<link rel="stylesheet" href="css/jquery.zyslide.css" />
+		<meta charset="UTF-8">
+		<title>轮播图</title>
+		<link rel="stylesheet" type="text/css" href="css/jquery.zyslide.css"/>
 	</head>
 	<body>
-		<!--步骤一样式 文件的改变 添加特殊的前缀 如样式冲突前缀zy-->
-		<!--第一个轮轮播图  既然是插件就要重复使用  就避免出项id box有样式 slide zy-slide-->
+		<!-- 第一个轮播图 -->
 		<div class="slide zy-slide">
-				<section class="zy-prev">上一张</section>
-				<section class="zy-next">下一张</section>
-				<!--ul>(li>img[src="images/$.jpg" alt="轮播图片"])*7-->
-				<ul>
-					<li><img src="images/1.jpg" alt="轮播图片" /></li>
-					<li><img src="images/2.jpg" alt="轮播图片" /></li>
-					<li><img src="images/3.jpg" alt="轮播图片" /></li>
-					<li><img src="images/4.jpg" alt="轮播图片" /></li>
-					<li><img src="images/5.jpg" alt="轮播图片" /></li>
-					<li><img src="images/6.jpg" alt="轮播图片" /></li>
-					<li><img src="images/7.jpg" alt="轮播图片" /></li>
-				</ul>
-				
+			<section class="zy-prev">前一张</section>
+			<section class="zy-next">后一张</section>
+			<!--ul>(li>img[src="images/$.jpg" alt="轮播图片"])*7-->
+			<ul>
+				<li><img src="images/1.jpg" alt="轮播图片" /></li>
+				<li><img src="images/2.jpg" alt="轮播图片" /></li>
+				<li><img src="images/3.jpg" alt="轮播图片" /></li>
+				<li><img src="images/4.jpg" alt="轮播图片" /></li>
+				<li><img src="images/5.jpg" alt="轮播图片" /></li>
+				<li><img src="images/6.jpg" alt="轮播图片" /></li>
+				<li><img src="images/7.jpg" alt="轮播图片" /></li>
+			</ul>
 		</div>
-		<!--第二个轮轮播图  既然是插件就要重复使用-->
+		
+		<!-- 第二个轮播图 -->
 		<div class="slide zy-slide">
-				<section class="zy-prev">上一张</section>
-				<section class="zy-next">下一张</section>
-				<!--ul>(li>img[src="images/$.jpg" alt="轮播图片"])*7-->
-				<ul>
-					<li><img src="images/1.jpg" alt="轮播图片" /></li>
-					<li><img src="images/2.jpg" alt="轮播图片" /></li>
-					<li><img src="images/3.jpg" alt="轮播图片" /></li>
-					<li><img src="images/4.jpg" alt="轮播图片" /></li>
-					<li><img src="images/5.jpg" alt="轮播图片" /></li>
-					<li><img src="images/6.jpg" alt="轮播图片" /></li>
-					<li><img src="images/7.jpg" alt="轮播图片" /></li>
-				</ul>
-				
+			<section class="zy-prev">前一张</section>
+			<section class="zy-next">后一张</section>
+			<!--ul>(li>img[src="images/$.jpg" alt="轮播图片"])*7-->
+			<ul>
+				<li><img src="images/1.jpg" alt="轮播图片" /></li>
+				<li><img src="images/2.jpg" alt="轮播图片" /></li>
+				<li><img src="images/3.jpg" alt="轮播图片" /></li>
+				<li><img src="images/4.jpg" alt="轮播图片" /></li>
+				<li><img src="images/5.jpg" alt="轮播图片" /></li>
+				<li><img src="images/6.jpg" alt="轮播图片" /></li>
+				<li><img src="images/7.jpg" alt="轮播图片" /></li>
+			</ul>
 		</div>
-		<!--第三-->
 		
-		
-		<div class="slide zy-slide" >
-				<section class="zy-prev">上一张</section>
-				<section class="zy-next">下一张</section>
-				<!--ul>(li>img[src="images/$.jpg" alt="轮播图片"])*7-->
-				<ul>
-					<li><img src="images/1.jpg" alt="轮播图片" /></li>
-					<li><img src="images/2.jpg" alt="轮播图片" /></li>
-					<li><img src="images/3.jpg" alt="轮播图片" /></li>
-					<li><img src="images/4.jpg" alt="轮播图片" /></li>
-					<li><img src="images/5.jpg" alt="轮播图片" /></li>
-					<li><img src="images/6.jpg" alt="轮播图片" /></li>
-					<li><img src="images/7.jpg" alt="轮播图片" /></li>
-				</ul>
-				
+		<!-- 第三个轮播图 -->
+		<div id="slide" class="zy-slide">
+			<section class="zy-prev">前一张</section>
+			<section class="zy-next">后一张</section>
+			<!--ul>(li>img[src="images/$.jpg" alt="轮播图片"])*7-->
+			<ul>
+				<li><img src="images/1.jpg" alt="轮播图片" /></li>
+				<li><img src="images/2.jpg" alt="轮播图片" /></li>
+				<li><img src="images/3.jpg" alt="轮播图片" /></li>
+				<li><img src="images/4.jpg" alt="轮播图片" /></li>
+				<li><img src="images/5.jpg" alt="轮播图片" /></li>
+				<li><img src="images/6.jpg" alt="轮播图片" /></li>
+				<li><img src="images/7.jpg" alt="轮播图片" /></li>
+			</ul>
 		</div>
 	</body>
+	<script src="libs/jquery-3.1.1.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery.zyslide.js" type="text/javascript" charset="utf-8"></script>
+	<script src="index.js" type="text/javascript" charset="utf-8"></script>
 </html>
-    <!--引入第三方库-->
-	<script src="libs/jquery.js"></script>
-	<!--封装成插件的脚本-->
-	<script src="js/jquery.zyslider.js"></script>
-	<!--模拟别人使用某个插件使用     用户自己创建的js-->
-	<script src="userindex.js"></script>
