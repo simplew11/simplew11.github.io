@@ -1,0 +1,47 @@
+如何使用插件呢？
+1***.html下
+引用 插件脚本文件 和插件样式文件
+<div class="slide zy-slide">
+			<section class="zy-prev">前一张</section>
+			<section class="zy-next">后一张</section>
+			<!--ul>(li>img[src="images/$.jpg" alt="轮播图片"])*7-->
+			<ul>
+				<li><img src="images/1.jpg" alt="轮播图片" /></li>
+				<li><img src="images/2.jpg" alt="轮播图片" /></li>
+				<li><img src="images/3.jpg" alt="轮播图片" /></li>
+				<li><img src="images/4.jpg" alt="轮播图片" /></li>
+				<li><img src="images/5.jpg" alt="轮播图片" /></li>
+				<li><img src="images/6.jpg" alt="轮播图片" /></li>
+				<li><img src="images/7.jpg" alt="轮播图片" /></li>
+			</ul>
+		</div>
+		
+
+
+
+
+新建一个用户脚本 index.js
+<div class="zy-slide">
+<
+//zySlide()前面的选择器是轮播图的根标签 标签里面样式取名为zy-slide（.html 文件 <div class="zy-slide">）
+例如：
+jQuery.noConflict();
+jQuery('.zy-slide').zySlide()
+
+想要控制轮播图出现时间和转动时间用法如下：
+jQuery('.zy-slide').zySlide(delay:*)
+jQuery('.zy-slide').zySlide(delay:*,speed:*)
+具体例子如下
+jQuery('.zy-slide').zySlide({delay:2000,speed:5000})
+//参数一轮播图出现时间2s后 参数二 转动完成周期为5s
+
+
+//支持对轮播图样式设置
+jQuery('.slide').zySlide({speed:*).css({
+	'样式属性': '样式值'
+});
+具体例子如下:
+jQuery('.slide').zySlide({speed:1000}).css({
+	'backgroundColor': 'yellow'
+});
+

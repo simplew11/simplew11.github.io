@@ -1,0 +1,88 @@
+此课件采用 git 版本管理工具对源代码实施管理，你可以通过基本的 git 本地命令
+行操作，查看详细修过过程。
+
+封装过程：
+6c8f6a9ad511b55622f5e9626b53350e2df5c26e 最后可以支持传递参数和样式的插件
+6aa2d1aafbd98cf40964daee48e4d8c33ec17d85 修改 不带参数的插件
+380054e7ebde9529a15a5371b5d52253f145cb25 修改 闭包理解和自行匿名函数使用
+5d5c9a1a029158a7e312cedfc5cc9d013fc235ac 第二次提交 轮播图的基本功能实现 但是不能当成插件使用
+b6e71508c1ada7065059b5e53d5b3ef32fe35568 第一次提交 模仿qq音乐 静态页面的结构和css完成
+
+
+
+1.如何实现基本的插件（不带参数）的呢?
+为了重复的使用在原来的例子里面去掉id，样式的 命名加上了特殊的前缀（如zy-），css、js文件名称 第三方.前缀+作用.文件类型
+如（jquery.zyslide.js   jquery.zyslider.css ）
+修改 原来的.css文件 
+修改 原来的.html 文件（样式与css对应）
+修改 原来的.js 文件 
+				用一个自行匿名函数包裹》全局函数（包裹原来实现基本轮播功能的代码）+$.fn jquery暴露的插件的接口
+															  $.fn.zySlide=function(){
+														
+																$(this).each(function(i,ele){
+																	slide(ele)//要做轮播图的根根标签
+																})
+
+添加一个文件index.js文件（模拟用户如使用插件）$('.zy-slide').zySlide()
+
+问题 如果jquery 出让$符号 的使用权限 就是说 从这里开始$不是jquery？
+添加一个文件index.js文件做如下的修改
+jQuery.noConflict()
+jQuery('.slide').zySlide()
+
+
+通过自定义的函数(function(形式参数){})(实际参数)
+如(function(a){})(jQuery) 会发现 其实a可以代替'$'符号          当然a也可是$
+到轮播图js文件下做如下修改
+					(function($){
+							var slide = function(ele){
+								//轮播图功能代码
+							}
+					})(jQuery)
+问题 如何能传递参数呢？
+修改如下：// 找到要轮播的轮播图的跟标签，调用最外层function(options) 里面slide方法添加参options 
+	$.fn.zySlide = function(options){
+		$(this).each(function(i,ele){
+			slide(ele,options);
+		})
+	}
+	
+    //到实现轮播函数修改
+    var slide = function(ele,options){
+		// 转化为 jquery 标签对象
+		var $ele = $(ele);
+		// 默认设置选项
+		var setting = {
+			// 控制刚开炸开的时间
+			delay: 1000,
+			// 控制 interval 的时间（轮播速度）
+			speed: 2000
+		};
+		// 对象合并 前者没有的保留 后者有和前面相同的属性会替代掉   第一参数就是防修改时候把原先替代
+		$.extend(true, setting, options);
+		
+添加一个文件index.js文件做如下的修改     
+jQuery('.slide').zySlide({speed:1000})
+jQuery('#slide').zySlide({delay:2000,speed:5000})
+
+问题如何能支持用户样式设置     支持链式调用呢？
+index.js文件做如下的修改 
+jQuery('.slide').zySlide({speed:1000}).css({
+	'backgroundColor': 'yellow'
+});
+jQuery('#slide').zySlide({delay:2000,speed:5000}).css({
+	'border': '2px solid red',
+	'backgroundColor': 'green'
+});
+
+插件脚本jquery.zyslide.js修改 让其封装插件能是对象有返回值添加return this;如下:
+$.fn.zySlide = function(options){
+		$(this).each(function(i,ele){
+			slide(ele,options);
+		})
+		
+		// 支持链式调用
+		return this;
+	}
+		
+    
